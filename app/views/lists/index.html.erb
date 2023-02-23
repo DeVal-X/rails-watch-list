@@ -1,0 +1,9 @@
+<h1>Lists</h1>
+
+<ul class="list-group">
+<% @lists.each do |list| %>
+<li class="list-group-item"><%= list.name %><%= link_to '=> Details', list_path(list) %></li>
+<% end %>
+</ul>
+
+<%= link_to '+ New list', new_list_path %>

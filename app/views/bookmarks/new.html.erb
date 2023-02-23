@@ -1,0 +1,5 @@
+<h3>Add a movie to your <%= @list.name %> list</h3>
+
+<%= render'form', bookmark: @bookmark %>
+
+<%= link_to '<= back to list', list_path(@list) %>

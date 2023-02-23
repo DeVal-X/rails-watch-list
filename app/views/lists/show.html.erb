@@ -1,0 +1,17 @@
+<h1><%= @list.name %></h1>
+
+<ul>
+ <span class="mb-2 d-block">
+  <em class="text-muted"><%= "You haven't saved any movies yet!" if @list.movies.empty? %></em>
+ </span>
+  <% @list.movies.each do |movie| %>
+    <li><%= movie.title %>
+    <%= link_to "Anihilate", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove that bookmark?"}%>
+    </li>
+  <% end %>
+
+<%= link_to '+add Bookmark',  new_list_bookmark_path(@list)  %>
+
+</ul>
+
+<%= link_to '<= back to lists', lists_path %>
