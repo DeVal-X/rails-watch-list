@@ -4,9 +4,9 @@
  <span class="mb-2 d-block">
   <em class="text-muted"><%= "You haven't saved any movies yet!" if @list.movies.empty? %></em>
  </span>
-  <% @list.movies.each do |movie| %>
-    <li><%= movie.title %>
-    <%= link_to "Anihilate", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove that bookmark?"}%>
+  <% @list.bookmarks.each do |bookmark| %>
+    <li><%= bookmark.movie.title %>
+    <%= link_to "Anihilate bookmark", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove that bookmark?"}%>
     </li>
   <% end %>
 

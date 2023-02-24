@@ -1,9 +1,24 @@
-<h1>Lists</h1>
+<h1>Movie Lists</h1>
+
+
+
+
+    <h2>list.name</h2>
+    <p>Product description with <strong>relevant info</strong> only.</p>
+  </div>
+
 
 <ul class="list-group">
-<% @lists.each do |list| %>
-<li class="list-group-item"><%= list.name %><%= link_to '=> Details', list_path(list) %></li>
-<% end %>
+  <div class="card-movie">
+    <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" /> %>
+     <% @lists.each do |list| %>
+      <li class="list-group-item mb-1 mt-1 rounded-lg shadow-sm">
+      <div class="card-movie-infos">
+          <%= list.name %> <%= link_to '-> Details', list_path(list) %>
+      </div>
+      </li>
+    <% end %>
+  </div>
 </ul>
 
 <%= link_to '+ New list', new_list_path %>
