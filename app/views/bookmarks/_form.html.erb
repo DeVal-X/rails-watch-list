@@ -3,5 +3,6 @@
 <%= simple_form_for [@list, @bookmark] do |f| %>
   <%= f.input :comment, placeholder: 'Enter a comment about the movie' %>
   <%= f.association :movie, prompt: "Select a movie", input_html: {data: { controller: "tom-select"}} %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.submit "Submit bookmark", class: "btn btn-primary" %>
 <% end %>

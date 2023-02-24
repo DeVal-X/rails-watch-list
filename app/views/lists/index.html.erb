@@ -1,24 +1,20 @@
-<h1>Movie Lists</h1>
-
-
-
-
-    <h2>list.name</h2>
-    <p>Product description with <strong>relevant info</strong> only.</p>
+  <div class="banner " style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(https://images.unsplash.com/photo-1616530940355-351fabd9524b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80);">
+    <div class="container">
+      <h1 class="banner-dimension text-center text-white display-1 text-shadow">Your movie lists</h1>
+    </div>
   </div>
 
+  <div class="container">
+    <div class="cards">
+      <% @lists.each do |list| %>
+          <%= link_to list_path(list), class: "text-decoration-none text-white" do %>
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random/?<%=list.name%>)">
+              <%= "#{list.name}" %>
+            </div>
+          <% end %>
+      <% end %>
+    </div>
 
-<ul class="list-group">
-  <div class="card-movie">
-    <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" /> %>
-     <% @lists.each do |list| %>
-      <li class="list-group-item mb-1 mt-1 rounded-lg shadow-sm">
-      <div class="card-movie-infos">
-          <%= list.name %> <%= link_to '-> Details', list_path(list) %>
-      </div>
-      </li>
-    <% end %>
+
+    <%= link_to '+ New list', new_list_path %>
   </div>
-</ul>
-
-<%= link_to '+ New list', new_list_path %>
